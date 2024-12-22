@@ -40,7 +40,7 @@ export const checkCSV = async (): Promise<CheckResult> => {
       const csvStr = decoder.decode(Deno.readFileSync(file.path));
       try {
         const data = parse(csvStr);
-        const dataCount = data.reduce((sum, row) => sum += row.length, 0)
+        const dataCount = data.reduce((sum, row) => sum += row.length, 0);
         if (Number.isInteger(dataCount / data.length)) {
           result.safe++;
           continue;
@@ -54,7 +54,7 @@ export const checkCSV = async (): Promise<CheckResult> => {
           `${colors.brightYellow("WARN:")} ${
             colors.underline(colors.yellow(file.path))
           } is broken!\n`,
-          error
+          error,
         );
       }
     }
