@@ -435,28 +435,28 @@ if (dbPath) {
                 ? String(item.inferred_gender)
                 : "other";
             switch (item.inferred_age) {
-              case '"0,5"':
+              case "0,5":
                 obj[gender].range00to05++;
                 return;
-              case '"6,12"':
+              case "6,12":
                 obj[gender].range06to12++;
                 return;
-              case '"13,17"':
+              case "13,17":
                 obj[gender].range13to17++;
                 return;
-              case '"18,24"':
+              case "18,24":
                 obj[gender].range18to24++;
                 return;
-              case '"25,34"':
+              case "25,34":
                 obj[gender].range25to34++;
                 return;
-              case '"35,44"':
+              case "35,44":
                 obj[gender].range35to44++;
                 return;
-              case '"45,54"':
+              case "45,54":
                 obj[gender].range45to54++;
                 return;
-              case '"55,64"':
+              case "55,64":
                 obj[gender].range55to64++;
                 return;
               default:
@@ -547,7 +547,12 @@ if (dbPath) {
 
   self.close();
 } else {
-  for await (const dbPath of walk("dbs", { exts: [".db"] })) {
+  for await (
+    const dbPath of walk("dbs", {
+      exts: [".db"],
+      skip: [/.*2024\/12\/23.*/],
+    })
+  ) {
     new Worker(`${import.meta.url}?dbpath=${dbPath.path}`, {
       type: "module",
       deno: { permissions: "inherit" },
