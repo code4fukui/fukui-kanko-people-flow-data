@@ -433,7 +433,7 @@ if (dbPath) {
             const gender =
               ["male", "female"].includes(String(item.inferred_gender))
                 ? String(item.inferred_gender)
-                : "Other";
+                : "other";
             switch (item.inferred_age) {
               case '"0,5"':
                 obj[gender].range00to05++;
