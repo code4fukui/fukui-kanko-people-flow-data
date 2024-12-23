@@ -4,6 +4,7 @@ if (Deno.cwd().split("/").at(-1) !== "fukui-kanko-people-flow-data") {
 import { colors } from "https://deno.land/x/cliffy@v1.0.0-rc.4/ansi/colors.ts";
 import { existsSync } from "jsr:@std/fs@^0.221.0";
 import { Database } from "jsr:@db/sqlite@0.11";
+import { walk } from "jsr:@std/fs@^0.221.0";
 
 const placements = [
   "fukui-terminal",
@@ -11,12 +12,18 @@ const placements = [
   "rainbow-one",
   "rainbow-two",
 ] as const;
+const isPlacement = (v: string): v is typeof placements[number] =>
+  (["fukui-terminal", "tojinbo", "rainbow-one", "rainbow-two"] as const)
+    .includes(
+      v as
+        | "fukui-terminal"
+        | "tojinbo"
+        | "rainbow-one"
+        | "rainbow-two",
+    );
 
 const url = new URL(import.meta.url);
-const placement = url.searchParams.get("placement") as
-  | typeof placements[number]
-  | null;
-
+const dbPath = url.searchParams.get("dbpath");
 const placementObjectClasses = {
   "fukui-terminal": {
     fullname: "fukui-station-east-entrance",
@@ -355,24 +362,34 @@ const date2String = (date: Date) =>
 /** ******************************************
  *                  main
  * ******************************************/
-if (placement) {
-  console.log(`worker for ${placement}.`);
+if (dbPath) {
+  console.log(`worker for ${dbPath}.`);
 
+  const [_, placement, year, month, dayDB] = dbPath.split("/");
+  if (!isPlacement(placement)) throw new Error("invalid placement value");
   const decoder = new TextDecoder();
-  const db = new Database(`${placement}.db`, { readonly: true });
+  const db = new Database(dbPath, { readonly: true });
   const selectApperedBetweenFromTo = db.prepare(`
   SELECT * FROM detected
   WHERE
     placement == :placement AND
     objectName == :objectName AND
     appered_at BETWEEN :from AND :to
-`);
+  `);
 
   const startedAt = new Date();
-  // 2024/10/17 20:50:00 から 24/12/23 00:00:00 までのデータに対して集計を行う
-  const limitDate = new Date(2024, 11, 23);
+
+  const limitDate = new Date(
+    Number(year),
+    Number(month) - 1,
+    Number(dayDB.split(".").at(0)) + 1,
+  );
   for (
-    const fromDate = new Date(2024, 9, 17, 20, 50);
+    const fromDate = new Date(
+      Number(year),
+      Number(month) - 1,
+      Number(dayDB.split(".").at(0)),
+    );
     fromDate.getTime() < limitDate.getTime();
     fromDate.setMinutes(fromDate.getMinutes() + 5)
   ) {
@@ -520,10 +537,10 @@ if (placement) {
 
   self.close();
 } else {
-  placements.forEach((v) => {
-    new Worker(`${import.meta.url}?placement=${v}`, {
+  for await (const dbPath of walk("dbs", { exts: [".db"] })) {
+    new Worker(`${import.meta.url}?dbpath=${dbPath.path}`, {
       type: "module",
       deno: { permissions: "inherit" },
     });
-  });
+  }
 }
