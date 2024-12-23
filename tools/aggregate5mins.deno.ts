@@ -393,7 +393,7 @@ if (dbPath) {
     fromDate.getTime() < limitDate.getTime();
     fromDate.setMinutes(fromDate.getMinutes() + 5)
   ) {
-    const toDate = new Date(fromDate.getTime() + 5 * 60 * 1000 - 1);
+    const toDate = new Date(fromDate.getTime() + 5 * 60 * 1000);
     console.log(
       `\n${placement} 集計範囲: ` +
         colors.bgGreen(`${date2String(fromDate)} ~ ${date2String(toDate)}`),
@@ -405,7 +405,7 @@ if (dbPath) {
         placement,
         objectName: objectClass,
         from: date2String(fromDate),
-        to: date2String(toDate),
+        to: date2String(new Date(toDate.getTime() - 1)),
       }) as SelectFromTable[];
 
       let detailCounts: Record<string, Record<string, number>> | undefined =
@@ -524,7 +524,13 @@ if (dbPath) {
 
       if (existsSync(csvPath)) {
         const existingData = decoder.decode(Deno.readFileSync(csvPath));
-        Deno.writeTextFileSync(csvPath, `${existingData}\n${row}`);
+        if (existingData.split("\n").at(0) !== fileHeader) {
+          Deno.writeTextFileSync(csvPath, `${fileHeader}\n${row}`);
+        } else {
+          if (existingData.split("\n").length < 13) {
+            Deno.writeTextFileSync(csvPath, `${existingData}\n${row}`);
+          }
+        }
       } else {
         Deno.mkdirSync(csvPath.split("/").slice(0, -1).join("/"), {
           recursive: true,
