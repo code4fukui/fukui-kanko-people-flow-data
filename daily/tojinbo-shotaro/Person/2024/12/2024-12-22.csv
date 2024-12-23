@@ -1,4 +1,13 @@
 placement,object class,aggregate from,aggregate to,total count
+tojinbo-shotaro,Person,2024-12-22 00:00:00,2024-12-22 01:00:00,0
+tojinbo-shotaro,Person,2024-12-22 01:00:00,2024-12-22 02:00:00,0
+tojinbo-shotaro,Person,2024-12-22 02:00:00,2024-12-22 03:00:00,0
+tojinbo-shotaro,Person,2024-12-22 03:00:00,2024-12-22 04:00:00,3
+tojinbo-shotaro,Person,2024-12-22 04:00:00,2024-12-22 05:00:00,0
+tojinbo-shotaro,Person,2024-12-22 05:00:00,2024-12-22 06:00:00,0
+tojinbo-shotaro,Person,2024-12-22 06:00:00,2024-12-22 07:00:00,76
+tojinbo-shotaro,Person,2024-12-22 07:00:00,2024-12-22 08:00:00,124
+tojinbo-shotaro,Person,2024-12-22 08:00:00,2024-12-22 09:00:00,230
 tojinbo-shotaro,Person,2024-12-22 09:00:00,2024-12-22 10:00:00,243
 tojinbo-shotaro,Person,2024-12-22 10:00:00,2024-12-22 11:00:00,614
 tojinbo-shotaro,Person,2024-12-22 11:00:00,2024-12-22 12:00:00,665

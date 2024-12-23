@@ -1,14 +1,23 @@
-placement,object class,aggregate from,aggregate to,total count,female range35to44,female range13to17,female range55to64,female range06to12,female range45to54,female range65over,female range00to05,female range25to34,female range18to24,male range35to44,male range13to17,male range55to64,male range06to12,male range45to54,male range65over,male range00to05,male range25to34,male range18to24
-fukui-station-east-entrance,Face,2024-12-22 09:00:00,2024-12-22 10:00:00,28,0,2,0,3,0,0,0,5,2,0,5,0,5,1,0,1,3,1
-fukui-station-east-entrance,Face,2024-12-22 10:00:00,2024-12-22 11:00:00,36,1,1,0,3,1,0,0,2,0,2,2,4,10,2,0,0,4,4
-fukui-station-east-entrance,Face,2024-12-22 11:00:00,2024-12-22 12:00:00,55,0,1,3,5,4,0,0,4,4,5,2,3,13,2,0,1,6,2
-fukui-station-east-entrance,Face,2024-12-22 12:00:00,2024-12-22 13:00:00,33,5,2,0,2,1,0,0,4,0,2,4,2,7,0,0,0,3,1
-fukui-station-east-entrance,Face,2024-12-22 13:00:00,2024-12-22 14:00:00,30,0,2,0,2,1,0,0,4,0,1,1,1,9,2,0,0,4,3
-fukui-station-east-entrance,Face,2024-12-22 14:00:00,2024-12-22 15:00:00,32,1,3,1,4,0,0,0,2,2,2,1,0,8,0,0,1,7,0
-fukui-station-east-entrance,Face,2024-12-22 15:00:00,2024-12-22 16:00:00,41,0,5,0,5,0,0,0,0,1,2,3,0,16,1,0,0,7,1
-fukui-station-east-entrance,Face,2024-12-22 16:00:00,2024-12-22 17:00:00,40,2,2,3,5,0,0,0,0,2,2,2,0,18,0,0,0,2,2
-fukui-station-east-entrance,Face,2024-12-22 17:00:00,2024-12-22 18:00:00,31,0,3,0,5,1,0,0,0,1,0,1,0,9,3,0,0,5,3
-fukui-station-east-entrance,Face,2024-12-22 18:00:00,2024-12-22 19:00:00,31,1,7,5,1,4,1,0,1,0,0,4,1,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0
+placement,object class,aggregate from,aggregate to,total count,male range00to05,male range06to12,male range13to17,male range18to24,male range25to34,male range35to44,male range45to54,male range55to64,male range65over,female range00to05,female range06to12,female range13to17,female range18to24,female range25to34,female range35to44,female range45to54,female range55to64,female range65over,other range00to05,other range06to12,other range13to17,other range18to24,other range25to34,other range35to44,other range45to54,other range55to64,other range65over
+fukui-station-east-entrance,Face,2024-12-22 00:00:00,2024-12-22 01:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 01:00:00,2024-12-22 02:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 02:00:00,2024-12-22 03:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 03:00:00,2024-12-22 04:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 04:00:00,2024-12-22 05:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 05:00:00,2024-12-22 06:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 06:00:00,2024-12-22 07:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 07:00:00,2024-12-22 08:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 08:00:00,2024-12-22 09:00:00,26,0,0,0,0,0,0,0,0,14,0,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 09:00:00,2024-12-22 10:00:00,47,0,0,0,0,0,0,0,0,27,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 10:00:00,2024-12-22 11:00:00,70,0,0,0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 11:00:00,2024-12-22 12:00:00,92,0,0,0,0,0,0,0,0,56,0,0,0,0,0,0,0,0,36,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 12:00:00,2024-12-22 13:00:00,53,0,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 13:00:00,2024-12-22 14:00:00,56,0,0,0,0,0,0,0,0,40,0,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 14:00:00,2024-12-22 15:00:00,58,0,0,0,0,0,0,0,0,40,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 15:00:00,2024-12-22 16:00:00,79,0,0,0,0,0,0,0,0,56,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 16:00:00,2024-12-22 17:00:00,63,0,0,0,0,0,0,0,0,40,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 17:00:00,2024-12-22 18:00:00,69,0,0,0,0,0,0,0,0,53,0,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-12-22 18:00:00,2024-12-22 19:00:00,45,0,0,0,0,0,0,0,0,30,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0
 fukui-station-east-entrance,Face,2024-12-22 19:00:00,2024-12-22 20:00:00,6,0,0,1,0,2,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 fukui-station-east-entrance,Face,2024-12-22 20:00:00,2024-12-22 21:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 fukui-station-east-entrance,Face,2024-12-22 21:00:00,2024-12-22 22:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
