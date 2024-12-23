@@ -131,13 +131,13 @@ const prefectures = [
   "Miyazaki",
   "Kagoshima",
   "Okinawa",
-  "other",
+  "Other",
 ] as const;
 const carCategories = [
   "PassengerCars",
   "CommercialVehicle",
   "RentACar",
-  "other",
+  "Other",
 ] as const;
 
 const areaToPrefecture = (area: string): typeof prefectures[number] => {
@@ -323,7 +323,7 @@ const areaToPrefecture = (area: string): typeof prefectures[number] => {
     case "沖縄":
       return "Okinawa";
     default:
-      return "other";
+      return "Other";
   }
 };
 
@@ -339,7 +339,7 @@ const kanaToCategory = (kana: string): typeof carCategories[number] => {
   } else if ("れわ".includes(kana)) {
     return "RentACar";
   } else {
-    return "other";
+    return "Other";
   }
 };
 
@@ -416,9 +416,13 @@ if (dbPath) {
         const fKeys = isFace ? genders : prefectures;
         const sKeys = isFace ? ageRanges : carCategories;
 
-        for (const fkey of [...fKeys, "other"]) {
+        for (const fkey of [...fKeys, isFace ? "other" : "Other"]) {
           obj[fkey] = {};
-          for (const sKey of isFace ? sKeys : [...sKeys, "other"]) {
+          for (
+            const sKey of isFace
+              ? sKeys
+              : [...sKeys, isFace ? "other" : "Other"]
+          ) {
             obj[fkey][sKey] = 0;
           }
         }
@@ -429,7 +433,7 @@ if (dbPath) {
             const gender =
               ["male", "female"].includes(String(item.inferred_gender))
                 ? String(item.inferred_gender)
-                : "other";
+                : "Other";
             switch (item.inferred_age) {
               case '"0,5"':
                 obj[gender].range00to05++;
@@ -474,7 +478,7 @@ if (dbPath) {
       let fileHeader =
         "placement,object class,aggregate from,aggregate to,total count";
       let row = `${placementObjectClasses[placement].fullname},${objectClass},${
-        date2String(toDate)
+        date2String(fromDate)
       },${date2String(toDate)},${selectResult.length}`;
       if (objectClass === "Face") {
         if (!detailCounts) continue;
