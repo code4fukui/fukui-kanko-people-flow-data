@@ -1,30 +1,40 @@
+if (Deno.cwd().split("/").at(-1) !== "fukui-kanko-people-flow-data") {
+  Deno.exit(1);
+}
 import { colors } from "https://deno.land/x/cliffy@v1.0.0-rc.4/ansi/colors.ts";
 import { existsSync } from "jsr:@std/fs@^0.221.0";
 import { Database } from "jsr:@db/sqlite@0.11";
-import { wait } from "jsr:@denosaurs/wait";
 
-const placementObjectClasses = [
-  {
-    placement: "fukui-terminal",
+const placements = [
+  "fukui-terminal",
+  "tojinbo",
+  "rainbow-one",
+  "rainbow-two",
+] as const;
+
+const url = new URL(import.meta.url);
+const placement = url.searchParams.get("placement") as
+  | typeof placements[number]
+  | null;
+
+const placementObjectClasses = {
+  "fukui-terminal": {
     fullname: "fukui-station-east-entrance",
     objectClasses: ["Person", "Face"],
   },
-  {
-    placement: "tojinbo",
+  "tojinbo": {
     fullname: "tojinbo-shotaro",
     objectClasses: ["Person", "Face"],
   },
-  {
-    placement: "rainbow-one",
+  "rainbow-one": {
     fullname: "rainbow-line-parking-lot-1-gate",
     objectClasses: ["LicensePlate", "Face"],
   },
-  {
-    placement: "rainbow-two",
+  "rainbow-two": {
     fullname: "rainbow-line-parking-lot-2-gate",
     objectClasses: ["LicensePlate", "Face"],
   },
-] as const;
+};
 
 type SelectFromTable = {
   placement: "fukui-terminal" | "tojinbo" | "rainbow-one" | "rainbow-two";
@@ -53,9 +63,6 @@ interface AggregatedDataBase {
   "total count": number;
 }
 type AggregatedDataRow = AggregatedDataBase & Record<string, string | number>;
-
-const decoder = new TextDecoder();
-const db = new Database("all.db", { readonly: true });
 
 const genders = ["male", "female", "other"] as const;
 const ageRanges = [
@@ -345,7 +352,15 @@ const date2String = (date: Date) =>
       .padStart(2, "0")
   }:${date.getSeconds().toString().padStart(2, "0")}`;
 
-const selectApperedBetweenFromTo = db.prepare(`
+/** ******************************************
+ *                  main
+ * ******************************************/
+if (placement) {
+  console.log(`worker for ${placement}.`);
+
+  const decoder = new TextDecoder();
+  const db = new Database(`${placement}.db`, { readonly: true });
+  const selectApperedBetweenFromTo = db.prepare(`
   SELECT * FROM detected
   WHERE
     placement == :placement AND
@@ -353,27 +368,21 @@ const selectApperedBetweenFromTo = db.prepare(`
     appered_at BETWEEN :from AND :to
 `);
 
-/** ******************************************
- *                  main
- * ******************************************/
-const startedAt = new Date();
-const spinner = wait("aggregate every 5mins.").start()
-// 2024/10/17 20:50:00 から 24/11/22 19:00:00 までのデータに対して集計を行う
-const limitDate = new Date(2024, 11, 22, 19);
-for (
-  const fromDate = new Date(2024, 9, 17, 20, 50);
-  fromDate.getTime() < limitDate.getTime();
-  fromDate.setMinutes(fromDate.getMinutes() + 5)
-) {
-  const toDate = new Date(fromDate.getTime() + 5 * 60 * 1000 - 1);
-  spinner.info(
-    "\n集計範囲: " +
-      colors.bgGreen(`${date2String(fromDate)} ~ ${date2String(toDate)}`),
-  );
+  const startedAt = new Date();
+  // 2024/10/17 20:50:00 から 24/12/23 00:00:00 までのデータに対して集計を行う
+  const limitDate = new Date(2024, 11, 23);
+  for (
+    const fromDate = new Date(2024, 9, 17, 20, 50);
+    fromDate.getTime() < limitDate.getTime();
+    fromDate.setMinutes(fromDate.getMinutes() + 5)
+  ) {
+    const toDate = new Date(fromDate.getTime() + 5 * 60 * 1000 - 1);
+    console.log(
+      `\n${placement} 集計範囲: ` +
+        colors.bgGreen(`${date2String(fromDate)} ~ ${date2String(toDate)}`),
+    );
 
-  for (const placementObjectClass of placementObjectClasses) {
-    const placement = placementObjectClass.placement;
-    for (const objectClass of placementObjectClass.objectClasses) {
+    for (const objectClass of placementObjectClasses[placement].objectClasses) {
       /** SQLite へのクエリ結果 */
       const selectResult = selectApperedBetweenFromTo.all({
         placement,
@@ -400,33 +409,37 @@ for (
         if (isFace) {
           selectResult.forEach((item) => {
             if (!item.inferred_age || !item.inferred_gender) return;
+            const gender =
+              ["male", "female"].includes(String(item.inferred_gender))
+                ? String(item.inferred_gender)
+                : "other";
             switch (item.inferred_age) {
               case '"0,5"':
-                obj[item.inferred_gender].range00to05++;
+                obj[gender].range00to05++;
                 return;
               case '"6,12"':
-                obj[item.inferred_gender].range06to12++;
+                obj[gender].range06to12++;
                 return;
               case '"13,17"':
-                obj[item.inferred_gender].range13to17++;
+                obj[gender].range13to17++;
                 return;
               case '"18,24"':
-                obj[item.inferred_gender].range18to24++;
+                obj[gender].range18to24++;
                 return;
               case '"25,34"':
-                obj[item.inferred_gender].range25to34++;
+                obj[gender].range25to34++;
                 return;
               case '"35,44"':
-                obj[item.inferred_gender].range35to44++;
+                obj[gender].range35to44++;
                 return;
               case '"45,54"':
-                obj[item.inferred_gender].range45to54++;
+                obj[gender].range45to54++;
                 return;
               case '"55,64"':
-                obj[item.inferred_gender].range55to64++;
+                obj[gender].range55to64++;
                 return;
               default:
-                obj[item.inferred_gender].range06to12++;
+                obj[gender].range65over++;
                 return;
             }
           });
@@ -443,7 +456,7 @@ for (
 
       let fileHeader =
         "placement,object class,aggregate from,aggregate to,total count";
-      let row = `${placementObjectClass.fullname},${objectClass},${
+      let row = `${placementObjectClasses[placement].fullname},${objectClass},${
         date2String(toDate)
       },${date2String(toDate)},${selectResult.length}`;
       if (objectClass === "Face") {
@@ -464,28 +477,29 @@ for (
         });
       }
 
-      const csvPath =
-        `./hourly/${placementObjectClass.fullname}/${objectClass}/${fromDate.getFullYear()}/${
-          (
-            fromDate.getMonth() + 1
-          )
-            .toString()
-            .padStart(2, "0")
-        }/${
-          fromDate
-            .getDate()
-            .toString()
-            .padStart(2, "0")
-        }/${fromDate.getFullYear()}-${
-          (fromDate.getMonth() + 1)
-            .toString()
-            .padStart(2, "0")
-        }-${fromDate.getDate().toString().padStart(2, "0")}-${
-          fromDate
-            .getHours()
-            .toString()
-            .padStart(2, "0")
-        }.csv`;
+      const csvPath = `./hourly/${
+        placementObjectClasses[placement].fullname
+      }/${objectClass}/${fromDate.getFullYear()}/${
+        (
+          fromDate.getMonth() + 1
+        )
+          .toString()
+          .padStart(2, "0")
+      }/${
+        fromDate
+          .getDate()
+          .toString()
+          .padStart(2, "0")
+      }/${fromDate.getFullYear()}-${
+        (fromDate.getMonth() + 1)
+          .toString()
+          .padStart(2, "0")
+      }-${fromDate.getDate().toString().padStart(2, "0")}-${
+        fromDate
+          .getHours()
+          .toString()
+          .padStart(2, "0")
+      }.csv`;
 
       if (existsSync(csvPath)) {
         const existingData = decoder.decode(Deno.readFileSync(csvPath));
@@ -498,7 +512,18 @@ for (
       }
     }
   }
+
+  const time = Date.now() - startedAt.getTime();
+  console.log(
+    `\n${placement} process time: ${colors.yellow(time.toString())} ms\n`,
+  );
+
+  self.close();
+} else {
+  placements.forEach((v) => {
+    new Worker(`${import.meta.url}?placement=${v}`, {
+      type: "module",
+      deno: { permissions: "inherit" },
+    });
+  });
 }
-spinner.succeed("Done!")
-const time = Date.now() - startedAt.getTime();
-console.log(`\nprocess time: ${colors.yellow(time.toString())} ms\n`);
