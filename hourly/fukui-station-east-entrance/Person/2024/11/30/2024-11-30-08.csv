@@ -1,0 +1,13 @@
+placement,object class,aggregate from,aggregate to,total count
+fukui-station-east-entrance,Person,2024-11-30 08:00:00,2024-11-30 08:05:00,21
+fukui-station-east-entrance,Person,2024-11-30 08:05:00,2024-11-30 08:10:00,45
+fukui-station-east-entrance,Person,2024-11-30 08:10:00,2024-11-30 08:15:00,45
+fukui-station-east-entrance,Person,2024-11-30 08:15:00,2024-11-30 08:20:00,90
+fukui-station-east-entrance,Person,2024-11-30 08:20:00,2024-11-30 08:25:00,38
+fukui-station-east-entrance,Person,2024-11-30 08:25:00,2024-11-30 08:30:00,64
+fukui-station-east-entrance,Person,2024-11-30 08:30:00,2024-11-30 08:35:00,84
+fukui-station-east-entrance,Person,2024-11-30 08:35:00,2024-11-30 08:40:00,80
+fukui-station-east-entrance,Person,2024-11-30 08:40:00,2024-11-30 08:45:00,105
+fukui-station-east-entrance,Person,2024-11-30 08:45:00,2024-11-30 08:50:00,118
+fukui-station-east-entrance,Person,2024-11-30 08:50:00,2024-11-30 08:55:00,118
+fukui-station-east-entrance,Person,2024-11-30 08:55:00,2024-11-30 09:00:00,100
