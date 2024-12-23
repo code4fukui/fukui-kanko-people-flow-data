@@ -1,0 +1,16 @@
+placement,object class,aggregate from,aggregate to,total count,male range00to05,male range06to12,male range13to17,male range18to24,male range25to34,male range35to44,male range45to54,male range55to64,male range65over,female range00to05,female range06to12,female range13to17,female range18to24,female range25to34,female range35to44,female range45to54,female range55to64,female range65over,other range00to05,other range06to12,other range13to17,other range18to24,other range25to34,other range35to44,other range45to54,other range55to64,other range65over
+fukui-station-east-entrance,Face,2024-10-17 00:00:00,2024-10-18 00:00:00,50,0,0,0,0,0,0,0,0,31,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-18 00:00:00,2024-10-19 00:00:00,122,0,0,0,0,0,0,0,0,96,0,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-19 00:00:00,2024-10-20 00:00:00,52,0,0,0,0,0,0,0,0,40,0,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-20 00:00:00,2024-10-21 00:00:00,25,0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-21 00:00:00,2024-10-22 00:00:00,179,0,0,0,0,0,0,0,0,137,0,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-22 00:00:00,2024-10-23 00:00:00,317,0,0,0,0,0,0,0,0,234,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-23 00:00:00,2024-10-24 00:00:00,630,0,0,0,0,0,0,0,0,463,0,0,0,0,0,0,0,0,164,0,0,0,0,0,0,0,0,2
+fukui-station-east-entrance,Face,2024-10-24 00:00:00,2024-10-25 00:00:00,650,0,0,0,0,0,0,0,0,496,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-25 00:00:00,2024-10-26 00:00:00,711,0,0,0,0,0,0,0,0,504,0,0,0,0,0,0,0,0,207,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-26 00:00:00,2024-10-27 00:00:00,805,0,0,0,0,0,0,0,0,491,0,0,0,0,0,0,0,0,307,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-27 00:00:00,2024-10-28 00:00:00,410,0,0,0,0,0,0,0,0,236,0,0,0,0,0,0,0,0,170,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-28 00:00:00,2024-10-29 00:00:00,176,0,0,0,0,0,0,0,0,120,0,0,0,0,0,0,0,0,56,0,0,0,0,0,0,0,0,0
+fukui-station-east-entrance,Face,2024-10-29 00:00:00,2024-10-30 00:00:00,619,0,0,0,0,0,0,0,0,484,0,0,0,0,0,0,0,0,133,0,0,0,0,0,0,0,0,1
+fukui-station-east-entrance,Face,2024-10-30 00:00:00,2024-10-31 00:00:00,541,0,0,0,0,0,0,0,0,390,0,0,0,0,0,0,0,0,148,0,0,0,0,0,0,0,0,2
+fukui-station-east-entrance,Face,2024-10-31 00:00:00,2024-11-01 00:00:00,543,0,0,0,0,0,0,0,0,395,0,0,0,0,0,0,0,0,148,0,0,0,0,0,0,0,0,0
