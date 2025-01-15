@@ -33,7 +33,7 @@ if (!walkin) {
   for await (
     const dir of walk("hourly", {
       includeFiles: false,
-      match: [/hourly\/[a-z0-9-]*\/[a-zA-Z]*\/2024\/[0-9]{2}\/[0-9]{2}/],
+      match: [/hourly\/[a-z0-9-]*\/[a-zA-Z]*\/202[0-9]\/[0-9]{2}\/[0-9]{2}/],
     })
   ) {
     new Worker(`${import.meta.url}?walkin=${dir.path}`, {

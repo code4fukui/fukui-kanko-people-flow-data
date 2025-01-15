@@ -550,7 +550,7 @@ if (dbPath) {
   for await (
     const dbPath of walk("dbs", {
       exts: [".db"],
-      skip: [/.*2024\/12\/23.*/],
+      skip: [/.*2024\/11.*/, /.*2024\/10.*/, /.*2024\/12\/[01].*/],
     })
   ) {
     new Worker(`${import.meta.url}?dbpath=${dbPath.path}`, {
