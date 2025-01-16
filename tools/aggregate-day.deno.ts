@@ -33,7 +33,7 @@ if (!walkin) {
   for await (
     const dir of walk("daily", {
       includeFiles: false,
-      match: [/daily\/[a-z0-9-]*\/[a-zA-Z]*\/202[0-9]\/[0-9]{2}/],
+      match: [/daily\/[a-z0-9-]*\/[a-zA-Z]*\/2025\/01/],
     })
   ) {
     new Worker(`${import.meta.url}?walkin=${dir.path}`, {

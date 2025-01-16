@@ -185,7 +185,7 @@ if (placement && walkin) {
   self.close();
 } else {
   placements.forEach((v) => {
-    ["2024/12", "2025/01"].forEach(async (m) => {
+    ["2025/01"].forEach(async (m) => {
       const monthDir = `${v}/${m}/`;
       for await (
         const dir of walk(monthDir, {
