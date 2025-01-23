@@ -2,3 +2,4 @@ placement,object class,aggregate from,aggregate to,total count
 tojinbo-shotaro,Person,2025-01-23 10:00:00,2025-01-23 10:05:00,36
 tojinbo-shotaro,Person,2025-01-23 10:05:00,2025-01-23 10:10:00,33
 tojinbo-shotaro,Person,2025-01-23 10:10:00,2025-01-23 10:15:00,8
+tojinbo-shotaro,Person,2025-01-23 10:15:00,2025-01-23 10:20:00,40
