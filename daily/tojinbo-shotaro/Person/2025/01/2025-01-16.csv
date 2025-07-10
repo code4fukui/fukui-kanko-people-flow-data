@@ -1,15 +1,15 @@
 placement,object class,aggregate from,aggregate to,total count
-
-
-
-
-
-
-
-
-
-
-
+tojinbo-shotaro,Person,2025-01-16 00:00:00,2025-01-16 01:00:00,0
+tojinbo-shotaro,Person,2025-01-16 01:00:00,2025-01-16 02:00:00,0
+tojinbo-shotaro,Person,2025-01-16 02:00:00,2025-01-16 03:00:00,1
+tojinbo-shotaro,Person,2025-01-16 03:00:00,2025-01-16 04:00:00,3
+tojinbo-shotaro,Person,2025-01-16 04:00:00,2025-01-16 05:00:00,1
+tojinbo-shotaro,Person,2025-01-16 05:00:00,2025-01-16 06:00:00,0
+tojinbo-shotaro,Person,2025-01-16 06:00:00,2025-01-16 07:00:00,33
+tojinbo-shotaro,Person,2025-01-16 07:00:00,2025-01-16 08:00:00,90
+tojinbo-shotaro,Person,2025-01-16 08:00:00,2025-01-16 09:00:00,172
+tojinbo-shotaro,Person,2025-01-16 09:00:00,2025-01-16 10:00:00,354
+tojinbo-shotaro,Person,2025-01-16 10:00:00,2025-01-16 11:00:00,270
 tojinbo-shotaro,Person,2025-01-16 11:00:00,2025-01-16 12:00:00,294
 tojinbo-shotaro,Person,2025-01-16 12:00:00,2025-01-16 13:00:00,385
 tojinbo-shotaro,Person,2025-01-16 13:00:00,2025-01-16 14:00:00,479
