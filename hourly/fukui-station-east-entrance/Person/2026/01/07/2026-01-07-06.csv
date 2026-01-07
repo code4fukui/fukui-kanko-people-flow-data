@@ -1,0 +1,13 @@
+placement,object class,aggregate from,aggregate to,total count
+fukui-station-east-entrance,Person,2026-01-07 06:00:00,2026-01-07 06:05:00,8
+fukui-station-east-entrance,Person,2026-01-07 06:05:00,2026-01-07 06:10:00,1
+fukui-station-east-entrance,Person,2026-01-07 06:10:00,2026-01-07 06:15:00,6
+fukui-station-east-entrance,Person,2026-01-07 06:15:00,2026-01-07 06:20:00,1
+fukui-station-east-entrance,Person,2026-01-07 06:20:00,2026-01-07 06:25:00,6
+fukui-station-east-entrance,Person,2026-01-07 06:25:00,2026-01-07 06:30:00,10
+fukui-station-east-entrance,Person,2026-01-07 06:30:00,2026-01-07 06:35:00,21
+fukui-station-east-entrance,Person,2026-01-07 06:35:00,2026-01-07 06:40:00,15
+fukui-station-east-entrance,Person,2026-01-07 06:40:00,2026-01-07 06:45:00,12
+fukui-station-east-entrance,Person,2026-01-07 06:45:00,2026-01-07 06:50:00,12
+fukui-station-east-entrance,Person,2026-01-07 06:50:00,2026-01-07 06:55:00,11
+fukui-station-east-entrance,Person,2026-01-07 06:55:00,2026-01-07 07:00:00,3
