@@ -1,0 +1,25 @@
+placement,object class,aggregate from,aggregate to,total count
+tojinbo-shotaro,Person,2026-01-23 00:00:00,2026-01-23 01:00:00,0
+tojinbo-shotaro,Person,2026-01-23 01:00:00,2026-01-23 02:00:00,1
+tojinbo-shotaro,Person,2026-01-23 02:00:00,2026-01-23 03:00:00,0
+tojinbo-shotaro,Person,2026-01-23 03:00:00,2026-01-23 04:00:00,0
+tojinbo-shotaro,Person,2026-01-23 04:00:00,2026-01-23 05:00:00,0
+tojinbo-shotaro,Person,2026-01-23 05:00:00,2026-01-23 06:00:00,0
+tojinbo-shotaro,Person,2026-01-23 06:00:00,2026-01-23 07:00:00,91
+tojinbo-shotaro,Person,2026-01-23 07:00:00,2026-01-23 08:00:00,27
+tojinbo-shotaro,Person,2026-01-23 08:00:00,2026-01-23 09:00:00,80
+tojinbo-shotaro,Person,2026-01-23 09:00:00,2026-01-23 10:00:00,89
+tojinbo-shotaro,Person,2026-01-23 10:00:00,2026-01-23 11:00:00,114
+tojinbo-shotaro,Person,2026-01-23 11:00:00,2026-01-23 12:00:00,372
+tojinbo-shotaro,Person,2026-01-23 12:00:00,2026-01-23 13:00:00,178
+tojinbo-shotaro,Person,2026-01-23 13:00:00,2026-01-23 14:00:00,349
+tojinbo-shotaro,Person,2026-01-23 14:00:00,2026-01-23 15:00:00,187
+tojinbo-shotaro,Person,2026-01-23 15:00:00,2026-01-23 16:00:00,350
+tojinbo-shotaro,Person,2026-01-23 16:00:00,2026-01-23 17:00:00,216
+tojinbo-shotaro,Person,2026-01-23 17:00:00,2026-01-23 18:00:00,50
+tojinbo-shotaro,Person,2026-01-23 18:00:00,2026-01-23 19:00:00,13
+tojinbo-shotaro,Person,2026-01-23 19:00:00,2026-01-23 20:00:00,0
+tojinbo-shotaro,Person,2026-01-23 20:00:00,2026-01-23 21:00:00,2
+tojinbo-shotaro,Person,2026-01-23 21:00:00,2026-01-23 22:00:00,2
+tojinbo-shotaro,Person,2026-01-23 22:00:00,2026-01-23 23:00:00,1
+tojinbo-shotaro,Person,2026-01-23 23:00:00,2026-01-24 00:00:00,28
