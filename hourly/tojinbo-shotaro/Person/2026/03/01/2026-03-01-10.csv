@@ -1,0 +1,13 @@
+placement,object class,aggregate from,aggregate to,total count
+tojinbo-shotaro,Person,2026-03-01 10:00:00,2026-03-01 10:05:00,42
+tojinbo-shotaro,Person,2026-03-01 10:05:00,2026-03-01 10:10:00,56
+tojinbo-shotaro,Person,2026-03-01 10:10:00,2026-03-01 10:15:00,67
+tojinbo-shotaro,Person,2026-03-01 10:15:00,2026-03-01 10:20:00,67
+tojinbo-shotaro,Person,2026-03-01 10:20:00,2026-03-01 10:25:00,94
+tojinbo-shotaro,Person,2026-03-01 10:25:00,2026-03-01 10:30:00,142
+tojinbo-shotaro,Person,2026-03-01 10:30:00,2026-03-01 10:35:00,180
+tojinbo-shotaro,Person,2026-03-01 10:35:00,2026-03-01 10:40:00,95
+tojinbo-shotaro,Person,2026-03-01 10:40:00,2026-03-01 10:45:00,130
+tojinbo-shotaro,Person,2026-03-01 10:45:00,2026-03-01 10:50:00,167
+tojinbo-shotaro,Person,2026-03-01 10:50:00,2026-03-01 10:55:00,189
+tojinbo-shotaro,Person,2026-03-01 10:55:00,2026-03-01 11:00:00,171
