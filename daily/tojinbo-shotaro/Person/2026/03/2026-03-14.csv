@@ -1,0 +1,25 @@
+placement,object class,aggregate from,aggregate to,total count
+tojinbo-shotaro,Person,2026-03-14 00:00:00,2026-03-14 01:00:00,3
+tojinbo-shotaro,Person,2026-03-14 01:00:00,2026-03-14 02:00:00,1
+tojinbo-shotaro,Person,2026-03-14 02:00:00,2026-03-14 03:00:00,1
+tojinbo-shotaro,Person,2026-03-14 03:00:00,2026-03-14 04:00:00,0
+tojinbo-shotaro,Person,2026-03-14 04:00:00,2026-03-14 05:00:00,8
+tojinbo-shotaro,Person,2026-03-14 05:00:00,2026-03-14 06:00:00,8
+tojinbo-shotaro,Person,2026-03-14 06:00:00,2026-03-14 07:00:00,30
+tojinbo-shotaro,Person,2026-03-14 07:00:00,2026-03-14 08:00:00,28
+tojinbo-shotaro,Person,2026-03-14 08:00:00,2026-03-14 09:00:00,397
+tojinbo-shotaro,Person,2026-03-14 09:00:00,2026-03-14 10:00:00,590
+tojinbo-shotaro,Person,2026-03-14 10:00:00,2026-03-14 11:00:00,1681
+tojinbo-shotaro,Person,2026-03-14 11:00:00,2026-03-14 12:00:00,2239
+tojinbo-shotaro,Person,2026-03-14 12:00:00,2026-03-14 13:00:00,2461
+tojinbo-shotaro,Person,2026-03-14 13:00:00,2026-03-14 14:00:00,2340
+tojinbo-shotaro,Person,2026-03-14 14:00:00,2026-03-14 15:00:00,2314
+tojinbo-shotaro,Person,2026-03-14 15:00:00,2026-03-14 16:00:00,1965
+tojinbo-shotaro,Person,2026-03-14 16:00:00,2026-03-14 17:00:00,1518
+tojinbo-shotaro,Person,2026-03-14 17:00:00,2026-03-14 18:00:00,328
+tojinbo-shotaro,Person,2026-03-14 18:00:00,2026-03-14 19:00:00,45
+tojinbo-shotaro,Person,2026-03-14 19:00:00,2026-03-14 20:00:00,0
+tojinbo-shotaro,Person,2026-03-14 20:00:00,2026-03-14 21:00:00,0
+tojinbo-shotaro,Person,2026-03-14 21:00:00,2026-03-14 22:00:00,0
+tojinbo-shotaro,Person,2026-03-14 22:00:00,2026-03-14 23:00:00,0
+tojinbo-shotaro,Person,2026-03-14 23:00:00,2026-03-15 00:00:00,20
