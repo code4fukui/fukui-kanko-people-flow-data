@@ -1,29 +1,23 @@
-# Fukui Prefecture Tourism DX AI Camera Open Data
+# Fukui Tourism DX AI Camera Open Data
 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
-This repository publishes aggregated open data from AI cameras installed at key tourist locations in Fukui Prefecture, Japan. Data is regularly collected, processed, and released for public use and visualization.
+This repository publishes aggregated open data from AI cameras installed at major tourist locations in Fukui Prefecture, Japan.
 
-## Demo
 [Visualization App](https://code4fukui.github.io/fukui-kanko-people-flow-visualization/)
 [Visualization App Source Code](https://github.com/code4fukui/fukui-kanko-people-flow-visualization)
 
-## Features
-- 24/7 monitoring of people, face, and license plate detection at major tourist locations
-- Data aggregated at daily, hourly, and 5-minute intervals
-- Detailed information on detected objects, including age, gender, and movement
-- Data available in CSV and SQLite formats
+## Read This First
 
-## Requirements
-No additional requirements.
+- Full technical documentation (English): [README.en.md](README.en.md)
+- Full technical documentation (Japanese): [README.ja.md](README.ja.md)
 
-## Usage
-The data is provided as open data and can be downloaded and used freely.
+## Important Data Caveats
 
-## Data / API
-The data is collected from AI cameras installed at the following locations in Fukui Prefecture:
-- Fukui Station East Entrance
-- Tojinbo Shopping Street
-- Rainbow Line Summit Park (Parking Lot 1 & 2)
+- `0` counts usually mean “no detection in field of view”, not necessarily camera offline
+- Face detection is less reliable before 08:00 and after 19:00
+- For 24-hour analysis, use `Person` data as the primary signal
+- Known outage periods and hardware issues are documented in [README.en.md](README.en.md) and [README.ja.md](README.ja.md)
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+
+MIT License © 2024 Code for FUKUI
