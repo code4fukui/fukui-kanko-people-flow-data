@@ -1,82 +1,74 @@
-# 福井県観光DX AIカメラオープンデータ
+# Fukui Prefecture Tourism DX AI Camera Open Data
 
-福井県内の主要観光地に設置されたAIカメラの集計データを公開するリポジトリです。データは定期的に収集・処理され、オープンデータとして提供されています。
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
-[可視化アプリはこちら](https://code4fukui.github.io/fukui-kanko-people-flow-visualization/)
-[可視化アプリのソースコード](https://github.com/code4fukui/fukui-kanko-people-flow-visualization)
+This repository publishes aggregated open data from AI cameras installed at key tourist locations in Fukui Prefecture, Japan. The data is regularly collected, processed, and released for public use and visualization.
 
-## 設置場所
+## Visualization
 
-AIカメラは福井県内の主要観光地に設置されています：
-- 福井駅東口
-- 東尋坊商店街
-- レインボーライン 山頂公園 第一・第二駐車場
+A web application is available to visualize the people flow data.
 
-## ディレクトリ構成
+- **[Visualization App](https://code4fukui.github.io/fukui-kanko-people-flow-visualization/)**
+- **[Visualization App Source Code](https://github.com/code4fukui/fukui-kanko-people-flow-visualization)**
 
-- `full/`：設置場所ごと・検出対象ごとの集計CSVデータ
-- `monthly/`：日ごとに集計されたデータ（場所・対象・年・月・日）
-- `daily/`：1時間ごとに集計されたデータ（場所・対象・年・月・日・時）
-- `hourly/`：5分間隔のデータ（場所・対象・年・月・日・時内の5分単位）
-- `tools/`：Denoで実行するTypeScriptによる集計・処理スクリプト
+## About the Data
 
-## データ処理ツール
+### Camera Locations
 
-`tools/`ディレクトリ内のスクリプト（Denoで実行）：
-- `aggregate-day.deno.ts`, `aggregate-hour.deno.ts`, `aggregate5mins.deno.ts`：生CSVデータを日・時間・5分単位で集計
-- `csv2sqlite.deno.ts`：CSVデータをSQLiteデータベースに変換
-- `check-csv.deno.ts`：CSVファイルの検証
-- `escape-age-data.deno.ts`, `escape-movement-data.deno.ts`：年齢・移動データのフォーマット修正
-- `license-plate-aggregation.deno.ts`：駐車場ナンバープレートデータの集計
-- `thin-out-to-one-second-interval.deno.ts`：移動データを1秒間隔に間引き
+AI cameras are installed at the following key tourist locations in Fukui Prefecture:
 
-## データフォーマット
+- Fukui Station East Entrance
+- Tojinbo Shopping Street
+- Rainbow Line Summit Park (Parking Lot 1 & 2)
 
-CSVファイルには、検出オブジェクト（Person, Face, LicensePlate）の集計数や属性（年齢、性別、都道府県、移動など）が含まれます。
+### Data Structure
 
-## データの利用可能性と制限事項
+The data is organized into directories based on the aggregation interval:
 
-**カメラの動作状況:**
-- 全カメラは24時間稼働しています（保守・故障時を除く）
-- データの0はカメラがオフラインだったのではなく、カメラの視野内で対象物が検出されなかったことを示しています
+- `full/`: Complete aggregated CSV data, separated by location and detection target.
+- `monthly/`: Data aggregated by day, organized by `location/target/year/month`.
+- `daily/`: Data aggregated by hour, organized by `location/target/year/month/day`.
+- `hourly/`: Data at 5-minute intervals, organized by `location/target/year/month/day/hour`.
 
-**検出タイプ別の特性:**
-- **顔検出（Face Detection）**: 24時間稼働していますが、朝8時前と夜7時以降の検出числа は著しく低くなります。原因は以下の複数の要素が考えられます：
-  - 屋外の照明条件が顔認識精度に大きく影響
-  - 福井駅東口では営業時間外に防火シャッターが降りるため、カメラの視野範囲が制限される
-  - 検出アルゴリズムは低照度環境で感度が低下
-  - 夜間・早朝の実際の来館者数が少ない
-  - ただし、カメラは24時間稼働し顔を処理・記録しています
-- **人物検出（Person Detection）**: 24時間稼働で高い一貫性を持っています。24時間分析では顔検出より信頼性が高いです
-- **ナンバープレート検出（License Plate Detection）**: カメラが稼働している場合は24時間利用可能です（既知の問題を参照）
+### Data Format
 
-**データの特性:**
-- 全検出タイプは24時間継続稼働しています（保守・既知の障害期間を除く）
-- 顔検出は日中に自然な変動を示しています：
-  - 非常に低い検出数：午前0時～午前8時（福井駅では平均 <100件/時간）
-  - ピーク時の検出数：午前11時～午後5時（福井駅では平均 >12,000件/時間）
-  - 低い検出数：午後7時～午後11時（福井駅では平均 <500件/时間）
-- 人物検出は24時間を通じてより一貫した検出カバレッジを示しており、すべての時間帯で合理的な検出数があります
-- データは営業時間と観光シーズンにピーク活動がある実際の来館者パターンを反映しています
-- 時間別データは詳細な時系列分析のために5分間隔で提供されています
+The CSV files contain aggregated counts and attributes for three types of detected objects:
 
-**既知の問題と制限:**
-- **データ収集開始時期**: 2024年12月20日から収集開始。それ以前のデータは利用できません
-- **システム障害**: 
-  - 2025年9月26日～28日：全ロケーションで完全なシステム停止
-  - 2025年内の其他散発的な障害
-- **機器障害 - レインボーライン第一駐車場**: ナンバープレート検出カメラが2026年初頭に機器障害を発生。現在修理対応中です。この期間（2026年1月～2月）のナンバープレートデータはほぼ利用できません
-- **視野範囲**: カメラの設置位置により、一部エリアが視野外となる可能性があり、検出精度に影響します
+- **`Person`**: General person detection.
+- **`Face`**: Face detection with estimated attributes like age and gender.
+- **`LicensePlate`**: Vehicle license plate detection with estimated prefecture of origin and vehicle type.
 
-**データ分析の推奨事項:**
-- 24時間の人流分析を行う場合は、顔検出より**人物検出**を優先してください。24時間を通じてより一貫したカバレッジがあります
-- 0の値は既知の障害期間を除き、カメラの故障ではなく「視野内での検出なし」として解釈してください
-- 顔検出は信頼性が高い午前8時～午後6時頃の昼間・午後分析に適しています
-- 早朝（午前8時前）と夜間（午後7時以降）の顔検出数が少ないのは照度低下と来館者数の減少が原因ですが、カメラは稼働しています
-- データ分析時は、上記の既知障害を考慮してください
-- レインボーライン第一駐車場のナンバープレートデータは、2026年1月～2月の期間を分析から除外してください
-- 全時間帯の来館者パターン分析には、人物検出データが最も信頼できます
+## Data Availability and Limitations
 
-## ライセンス
+Please consider the following points when analyzing the data.
+
+### General Operation
+
+- **Camera Hours**: All cameras operate 24/7, except during maintenance or equipment failures.
+- **Zero Counts**: A value of `0` in the data indicates that no objects were detected within the camera's field of view during that interval. It does not necessarily mean the camera was offline.
+
+### Detection-Specific Notes
+
+- **Person Detection**: Provides the most consistent and reliable data for 24-hour people flow analysis.
+- **Face Detection**: While operational 24/7, detection counts are significantly lower during early morning (before 8 AM) and late evening (after 7 PM). This is due to a combination of factors, including low-light conditions, reduced foot traffic, and physical obstructions (e.g., security shutters at Fukui Station). This data is most reliable for daytime analysis (approx. 8 AM to 6 PM).
+- **License Plate Detection**: Available 24/7 when the camera system is operational.
+
+### Known Issues and Data Gaps
+
+- **Data Collection Start**: Data collection began on **December 20, 2024**. No data is available prior to this date.
+- **System Outage**: A complete system outage occurred at all locations from **September 26-28, 2025**.
+- **Equipment Failure**: The license plate detection camera at **Rainbow Line Parking Lot 1** experienced an equipment failure in early 2026. Data from this camera is mostly unavailable for **January-February 2026** and should be excluded from analysis for that period.
+
+## Data Processing Tools
+
+The `tools/` directory contains TypeScript scripts for processing and aggregating the raw data. These scripts are designed to be run with the [Deno runtime](https://deno.land/).
+
+- `aggregate-day.deno.ts`, `aggregate-hour.deno.ts`, `aggregate5mins.deno.ts`: Aggregate raw data into daily, hourly, and 5-minute intervals.
+- `csv2sqlite.deno.ts`: Convert CSV data files into SQLite databases.
+- `check-csv.deno.ts`: Validate the format and integrity of CSV files.
+- `license-plate-aggregation.deno.ts`: Aggregate license plate data.
+- `escape-*.deno.ts`, `thin-out-*.deno.ts`: Utility scripts for cleaning and optimizing data.
+
+## License
 
 MIT License © 2024 Code for FUKUI
