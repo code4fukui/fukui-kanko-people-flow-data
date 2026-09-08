@@ -25,18 +25,6 @@ AI cameras are installed at the following key tourist locations in Fukui Prefect
 - `monthly/`: Data aggregated by day, organized by `location/target/year/month`.
 - `daily/`: Data aggregated by hour, organized by `location/target/year/month/day`.
 - `hourly/`: Data at 5-minute intervals, organized by `location/target/year/month/day/hour`.
-- `tools/`: TypeScript scripts for data aggregation and processing (run with Deno).
-
-## Data Processing Tools
-
-Scripts in the `tools/` directory (run with Deno):
-
-- `aggregate-day.deno.ts`, `aggregate-hour.deno.ts`, `aggregate5mins.deno.ts`: Aggregate raw CSV data into daily, hourly, and 5-minute intervals.
-- `csv2sqlite.deno.ts`: Convert CSV data to SQLite databases.
-- `check-csv.deno.ts`: Validate CSV files for errors or warnings.
-- `escape-age-data.deno.ts`, `escape-movement-data.deno.ts`: Fix formatting issues in age and movement data.
-- `license-plate-aggregation.deno.ts`: Aggregate license plate data from parking lots.
-- `thin-out-to-one-second-interval.deno.ts`: Reduce movement data to one-second intervals.
 
 ## Data Format
 
