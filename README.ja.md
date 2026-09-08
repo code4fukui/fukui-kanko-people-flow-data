@@ -25,18 +25,6 @@
 - `monthly/`: 日単位で集計されたデータ（`location/target/year/month`で構成）
 - `daily/`: 時単位で集計されたデータ（`location/target/year/month/day`で構成）
 - `hourly/`: 5分間隔で集計されたデータ（`location/target/year/month/day/hour`で構成）
-- `tools/`: データ集計・処理用のTypeScriptスクリプト（Denoで実行）
-
-## データ処理ツール
-
-`tools/`ディレクトリ内のスクリプト（Denoで実行）:
-
-- `aggregate-day.deno.ts`, `aggregate-hour.deno.ts`, `aggregate5mins.deno.ts`: ログCSVデータを日単位・時単位・5分単位に集計
-- `csv2sqlite.deno.ts`: CSVデータをSQLiteデータベースに変換
-- `check-csv.deno.ts`: CSVファイルのエラーや警告を検証
-- `escape-age-data.deno.ts`, `escape-movement-data.deno.ts`: 年齢・移動データのフォーマットを修正
-- `license-plate-aggregation.deno.ts`: 駐車場のナンバープレートデータを集計
-- `thin-out-to-one-second-interval.deno.ts`: 移動データを1秒単位に間引く
 
 ## データ形式
 
